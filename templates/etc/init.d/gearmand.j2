@@ -22,10 +22,10 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC={{ gearmand_user_name }}
 NAME={{ gearmand_user_name }}
 DAEMON=/usr/local/sbin/$NAME
-#DAEMON_ARGS="-d --log-file=/var/log/gearmand/gearmand.log"
+#DAEMON_ARGS="-d --log-file=/var/log/gearmand.log"
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
-LOGFILE=/var/log/gearmand/gearmand.log
+LOGFILE=/var/log/gearmand.log
 DAEMON_ARGS="-d -P $PIDFILE -l $LOGFILE"
 
 # Exit if the package is not installed

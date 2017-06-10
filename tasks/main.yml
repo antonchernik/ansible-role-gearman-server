@@ -29,7 +29,6 @@
 - template:
     src: ../templates/etc/init.d/gearmand.j2
     dest: /etc/init.d/gearmand
-    owner: "{{ gearmand_user_name }}"
     mode: "u=rwx,go=rx"
 
 - name: GEARMAN SERVER ROLE | Update script list
