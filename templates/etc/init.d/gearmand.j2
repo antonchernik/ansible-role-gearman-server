@@ -19,8 +19,8 @@
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
-DESC="gearmand"
-NAME=gearmand
+DESC={{ gearmand_user_name }}
+NAME={{ gearmand_user_name }}
 DAEMON=/usr/local/sbin/$NAME
 #DAEMON_ARGS="-d --log-file=/var/log/gearmand/gearmand.log"
 PIDFILE=/var/run/$NAME.pid
@@ -154,7 +154,6 @@ case "$1" in
 	esac
 	;;
   *)
-	#echo "Usage: $SCRIPTNAME {start|stop|restart|reload|force-reload}" >&2
 	echo "Usage: $SCRIPTNAME {start|stop|status|restart|force-reload}" >&2
 	exit 3
 	;;

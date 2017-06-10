@@ -1,2 +1,6 @@
 ---
 # defaults file for antonchernik.gearman-server
+default_download_directory: /tmp
+gearmand_tarball_url: https://launchpad.net/gearmand/1.2/1.1.12/+download/gearmand-1.1.12.tar.gz
+gearmand_tarball_directory: gearmand-1.1.12
+gearmand_user_name: gearmand

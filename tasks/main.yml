@@ -14,27 +14,22 @@
     - libgearman-dev
 
 - unarchive:
-   src: https://launchpad.net/gearmand/1.2/1.1.12/+download/gearmand-1.1.12.tar.gz
-   dest: /opt/
+   src: "{{ gearmand_tarball_url }}"
+   dest: "{{ default_download_directory }}"
    remote_src: true
 
-- name: GEARMAN SERVER ROLE | Configure
-  command: chdir=/opt/gearmand-1.1.12 ./configure
-
-- name: GEARMAN SERVER ROLE | Make Gearman
-  command: chdir=/opt/gearmand-1.1.12 make
-
-- name: GEARMAN SERVER ROLE | Make Install The Gearman
-  command: chdir=/opt/gearmand-1.1.12 make install
-
-- name: GEARMAN SERVER ROLE | Ldconfig Install The Gearman
-  command: chdir=/opt/gearmand-1.1.12 ldconfig
+- name: GEARMAN SERVER ROLE | Install
+  command: "chdir={{ default_download_directory }}/{{ gearmand_tarball_directory }} {{ item }}"
+  with_items:
+   - ./configure
+   - make
+   - make install
+   - ldconfig
 
 - template:
     src: ../templates/etc/init.d/gearmand.j2
     dest: /etc/init.d/gearmand
-    owner: root
-    group: root
+    owner: "{{ gearmand_user_name }}"
     mode: "u=rwx,go=rx"
 
 - name: GEARMAN SERVER ROLE | Update script list

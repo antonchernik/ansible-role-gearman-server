@@ -1,22 +1,31 @@
-Role Name
+Gearmand server
 =========
 
-A brief description of the role goes here.
+Gearmand role for installing Gearmand server. Tested platforms are:
+* Debian 8
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Debian 8 (jessie)
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Available variables are listed below, along with default values (see defaults/main.yml):
+
+| Parameter | Required | Default | Choices | Comments |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| default_download_directory | yes | /tmp | | Sets directory where files will be downloaded |
+| gearmand_tarball_url  | yes | https://launchpad.net/gearmand/1.2/1.1.12/+download/gearmand-1.1.12.tar.gz | | Sets Gearmand tarball url  |
+| gearmand_tarball_directory | yes  | gearmand-1.1.12 | | Sets Gearmand extract directory |
+| gearmand_user_name | yes  | gearmand | | Sets Gearmand system user to run with /sbin/nologin |
+
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
